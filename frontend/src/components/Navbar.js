@@ -40,6 +40,9 @@ const Navbar= () =>{
       <Link to="/login">Login</Link>
     </li>
     
+    <li>
+      <Link to="/vendorform">VendorForm</Link>
+    </li>
 		</ul>
    
   </div>
