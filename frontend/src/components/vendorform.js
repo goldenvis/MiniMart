@@ -8,13 +8,17 @@ class VendorForm extends Component {
         name: '',
         price: '',
         selectedFile: null,
-        filename: ''
+        filename: '',
+        startdate: '',
+        enddate: '',
     }
 
     handleChange = (event) => {
         this.setState({
             name: document.getElementById('name').value,
-            price: document.getElementById('price').value
+            price: document.getElementById('price').value,
+            startdate: document.getElementById('startdate').value,
+            enddate: document.getElementById('enddate').value,
         })
     }
 
@@ -37,6 +41,9 @@ class VendorForm extends Component {
         formData.append('price', this.state.price);
         formData.append('filename', this.state.filename);
         formData.append('file', this.state.selectedFile);
+        console.log(formData);
+        console.log(this.state.name);
+        console.log(this.state.startdate);
 
         const config = {     
             headers: { 'content-type': 'multipart/form-data' }
@@ -55,6 +62,7 @@ class VendorForm extends Component {
             <div className="formDiv">
                 <h2>Vendor Form</h2>
                 <form encType="multipart/form">
+                <label>Product name </label>
                     <input 
                         type="text" 
                         name="name" 
@@ -63,12 +71,31 @@ class VendorForm extends Component {
                         onChange={this.handleChange}
                     />
                     <br/>
+                    <label>Price </label>
                     <input 
                         type="number" 
                         name="price" 
                         id="price" 
                         placeholder="Price" 
                         onChange={this.handleChange}
+                    />
+                    <br/>
+                    <label>Begin Date </label>
+                    <input
+                    type="date" 
+                    name="startdate"
+                    placeholder="dd-mm-yyyy" 
+                    id="startdate"
+                    onChange={this.handleChange}
+                    />
+                    <br/>
+                    <label>Expire Date </label>
+                    <input
+                    type="date" 
+                    name="enddate"
+                    placeholder="dd-mm-yyyy" 
+                    id="enddate"
+                    onChange={this.handleChange}
                     />
                     <br/>
                     <input 
