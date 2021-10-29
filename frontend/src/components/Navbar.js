@@ -43,6 +43,11 @@ const Navbar= () =>{
     <li>
       <Link to="/vendorform">VendorForm</Link>
     </li>
+
+    <li>
+      <Link to="/vendorregistration">VendorRegistration</Link>
+    </li>
+
 		</ul>
    
   </div>
