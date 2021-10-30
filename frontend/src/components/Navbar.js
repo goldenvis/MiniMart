@@ -48,6 +48,10 @@ const Navbar= () =>{
       <Link to="/vendorregistration">VendorRegistration</Link>
     </li>
 
+    <li>
+      <Link to="/test">Test</Link>
+    </li>
+
 		</ul>
    
   </div>
