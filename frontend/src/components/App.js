@@ -9,6 +9,7 @@ import Weather from "./Weather";
 import Electronics from "./Electronics";
 import UserDashBoard from "./UserDashBoard";
 import Navbar from "./Navbar";
+import Test from "./test";
 import Time from "./time";
 import AddList from "./AddList";
 import DisplayList from "./DisplayList";
@@ -59,6 +60,7 @@ function App() {
       <Switch>
         <Route path='/' exact component={UserDashBoard} />
         <Route path='/electronics' component={Electronics} />
+        <Route path='/test' component={Test} />
         <Route path='/time' component={Time} />
         <Route path='/weather' component={Weather} />
         <Route path='/addlist' component={AddList} />
