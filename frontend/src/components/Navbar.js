@@ -40,18 +40,6 @@ const Navbar= () =>{
       <Link to="/login">Login</Link>
     </li>
     
-    <li>
-      <Link to="/vendorform">VendorForm</Link>
-    </li>
-
-    <li>
-      <Link to="/vendorregistration">VendorRegistration</Link>
-    </li>
-
-    <li>
-      <Link to="/vendoritems">VendorItems</Link>
-    </li>
-
 		</ul>
    
   </div>
