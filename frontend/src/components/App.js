@@ -13,6 +13,9 @@ import Time from "./time";
 import AddList from "./AddList";
 import DisplayList from "./DisplayList";
 import Login from "./Login";
+import VendorForm from "./vendorform";
+import VendorRegistration from "./vendorregistration";
+import VendorItems from "./VendorItems";
 
 //import UserDashBoard from "./UserDashBoard";
 
@@ -62,6 +65,10 @@ function App() {
         <Route path='/addlist' component={AddList} />
         <Route path='/displaylist' component={DisplayList} />
         <Route path='/login' component={Login} />
+        <Route path='/vendorform' component={VendorForm} />
+        <Route path='/vendorregistration' component={VendorRegistration} />
+        <Route path='/vendorItems' component={VendorItems} />
+
 
       </Switch>
     </Router>
