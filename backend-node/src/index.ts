@@ -1,7 +1,7 @@
 import { App } from './server'
 
 async function main() {
-    const app = new App(3000);
+    const app = new App(5001);
     await app.listen();
 }
 
