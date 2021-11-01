@@ -16,6 +16,7 @@ import DisplayList from "./DisplayList";
 import Login from "./Login";
 import VendorForm from "./vendorform";
 import VendorRegistration from "./vendorregistration";
+import VendorItems from "./VendorItems";
 
 //import UserDashBoard from "./UserDashBoard";
 
@@ -68,6 +69,7 @@ function App() {
         <Route path='/login' component={Login} />
         <Route path='/vendorform' component={VendorForm} />
         <Route path='/vendorregistration' component={VendorRegistration} />
+        <Route path='/vendorItems' component={VendorItems} />
 
 
       </Switch>
