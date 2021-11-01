@@ -8,8 +8,11 @@
 # testing
 /coverage
 
+.eslintcache
+
 # production
 /build
+
 
 .eslintcache
 
