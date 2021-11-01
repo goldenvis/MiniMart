@@ -3,6 +3,8 @@ export interface VendorItems {
     userid: string;
     name: string;
     price: string;
+    category: string;
+    description: string;
     begindate: Date;
     enddate: Date;   
 }

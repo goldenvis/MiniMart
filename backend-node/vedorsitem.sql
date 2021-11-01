@@ -26,6 +26,8 @@ CREATE TABLE `vendoritems` (
   `userid` varchar(250) DEFAULT NULL,
   `name` varchar(250) DEFAULT NULL,
   `price` varchar(250) DEFAULT NULL,
+  `category` varchar(250) DEFAULT NULL,
+  `description` varchar(250) DEFAULT NULL,
   `begindate` date DEFAULT NULL,
   `enddate` date DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,

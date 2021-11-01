@@ -16,12 +16,16 @@ class VendorItems extends Component {
         filename: '',
         startdate: '',
         enddate: '',
+        description: '',
+        category: '',
     }
 
     handleChange = (event) => {
         this.setState({
             name: document.getElementById('name').value,
             price: document.getElementById('price').value,
+            category: document.getElementById('category').value,
+            description: document.getElementById('description').value,
             startdate: document.getElementById('startdate').value,
             enddate: document.getElementById('enddate').value,
         })
@@ -45,8 +49,11 @@ class VendorItems extends Component {
         formData.append('userid', this.state.userid);
         formData.append('name', this.state.name);
         formData.append('price', this.state.price);
+        formData.append('category',this.state.category);
+        formData.append('description', this.state.description);
         formData.append('begindate', this.state.startdate);
         formData.append('enddate', this.state.enddate);
+
         console.log(formData);
         for (var [key, value] of formData.entries()) { 
             console.log(key, value);
@@ -72,8 +79,10 @@ class VendorItems extends Component {
                 userid: this.state.userid,
                 name: this.state.name,
                 price: this.state.price,
+                category: this.state.category,
+                description: this.state.description,
                 begindate: this.state.startdate,
-                senddate: this.state.enddate
+                enddate: this.state.enddate
             },
             {
               headers: {
@@ -93,7 +102,7 @@ class VendorItems extends Component {
                     <input 
                         type="text" 
                         name="category" 
-                        id="Category" 
+                        id="category" 
                         placeholder="Select category"
                         class="mytextwidth" 
                         onChange={this.handleChange}
