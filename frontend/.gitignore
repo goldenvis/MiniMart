@@ -8,9 +8,11 @@
 # testing
 /coverage
 
+.eslintcache
+
 # production
 /build
-# .eslintcache
+#
 # misc
 .DS_Store
 .env.local
