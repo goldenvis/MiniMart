@@ -9,7 +9,7 @@ import Weather from "./Weather";
 import Electronics from "./Electronics";
 import UserDashBoard from "./UserDashBoard";
 import Navbar from "./Navbar";
-import Test from "./test";
+import Test from "./Test";
 import Time from "./time";
 import AddList from "./AddList";
 import DisplayList from "./DisplayList";
@@ -17,6 +17,8 @@ import Login from "./Login";
 import VendorForm from "./vendorform";
 import VendorRegistration from "./vendorregistration";
 import VendorItems from "./VendorItems";
+import LoginForm from './vendors/LoginForm/LoginForm';
+import RegistrationForm from './vendors/RegistrationForm/RegistrationForm';
 
 //import UserDashBoard from "./UserDashBoard";
 
@@ -70,6 +72,8 @@ function App() {
         <Route path='/vendorform' component={VendorForm} />
         <Route path='/vendorregistration' component={VendorRegistration} />
         <Route path='/vendorItems' component={VendorItems} />
+        <Route path='/vendorlogin' component={LoginForm} />
+        <Route path='/vendorloginr' component={RegistrationForm} />
 
 
       </Switch>

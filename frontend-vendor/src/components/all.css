@@ -1,0 +1,47 @@
+.mytext {
+    width: 400px;
+    height: 100px;
+}
+.mytextwidth {
+    width: 400px;
+}
+
+#classComponentForm {
+    position: absolute;
+    text-align: left;
+    width: 50%;
+    height: 95%;
+    background-color: #AAAA;
+    padding: 20px;
+    top: 10%;
+    left: 26%;
+    border: solid;
+    border-color: black;
+    border-width: 0px;
+    border-radius: 10px;
+}
+
+#classComponentForm h2 {
+    text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  width: 100%;
+}
+
+form label {
+    font-weight: bold;
+    text-align: left;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+form input {
+    width: 50%;
+    height: 40px;
+    font-size: 20px;
+    font-family: "Work Sans", sans-serif;
+}

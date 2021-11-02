@@ -1,0 +1,50 @@
+.loginText {
+    color: #007bff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.successMessage {
+    color: green;
+    font-weight: bold;
+}
+
+.classComponentForm {
+    position: absolute;
+    text-align: left;
+    width: 40%;
+    height: 55%;
+    background-color: #AAAA;
+    padding: 20px;
+    top: 10%;
+    left: 26%;
+    border: solid;
+    border-color: black;
+    border-width: 3px;
+    border-radius: 10px;
+}
+
+.classComponentForm h2 {
+    text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  width: 100%;
+}
+
+form label {
+    font-weight: bold;
+    text-align: left;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+form input {
+    width: 50%;
+    height: 40px;
+    font-size: 20px;
+    font-family: "Work Sans", sans-serif;
+}
