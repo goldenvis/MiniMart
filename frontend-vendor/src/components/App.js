@@ -1,82 +1,41 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { uuid } from "uuidv4";
-import "./App.css";
-import Header from "./Header";
-import AddContact from "./AddContact";
-import ContactList from "./ContactList";
-import Weather from "./Weather";
-import Electronics from "./Electronics";
-import UserDashBoard from "./UserDashBoard";
-import Navbar from "./Navbar";
-import Test from "./Test";
-import Time from "./time";
-import AddList from "./AddList";
-import DisplayList from "./DisplayList";
-import Login from "./Login";
-import VendorForm from "./vendorform";
-import VendorRegistration from "./vendorregistration";
-import VendorItems from "./VendorItems";
+import React, {useState} from 'react';
+import './App.css';
+import Header from './vendors/Header/Header';
 import LoginForm from './vendors/LoginForm/LoginForm';
 import RegistrationForm from './vendors/RegistrationForm/RegistrationForm';
-
-//import UserDashBoard from "./UserDashBoard";
-
+import Home from './vendors/Home/Home';
+import PrivateRoute from './utils/PrivateRoute';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import AlertComponent from './vendors/AlertComponent/AlertComponent';  
 function App() {
-  const LOCAL_STORAGE_KEY = "contacts";
-  const [contacts, setContacts] = useState([]);
-  const [place, setPlace] = useState([]);
-
-
-  const addContactHandler = (contact) => {
-    console.log(contact);
-    setContacts([...contacts, { id: uuid(), ...contact }]);
-  };
-
-  const addPlaceHandler = (place) => {
-    console.log(place);
-    setPlace([...place]);
-  };
-
-
-
-  const removeContactHandler = (id) => {
-    const newContactList = contacts.filter((contact) => {
-      return contact.id !== id;
-    });
-
-    setContacts(newContactList);
-  };
-
-  useEffect(() => {
-    const retriveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-    if (retriveContacts) setContacts(retriveContacts);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
-  }, [contacts]);
-
+  const [title, updateTitle] = useState(null);
+  const [errorMessage, updateErrorMessage] = useState(null);
   return (
     <Router>
-      <Navbar />
-      <Switch>
-        <Route path='/' exact component={UserDashBoard} />
-        <Route path='/electronics' component={Electronics} />
-        <Route path='/test' component={Test} />
-        <Route path='/time' component={Time} />
-        <Route path='/weather' component={Weather} />
-        <Route path='/addlist' component={AddList} />
-        <Route path='/displaylist' component={DisplayList} />
-        <Route path='/login' component={Login} />
-        <Route path='/vendorform' component={VendorForm} />
-        <Route path='/vendorregistration' component={VendorRegistration} />
-        <Route path='/vendorItems' component={VendorItems} />
-        <Route path='/vendorlogin' component={LoginForm} />
-        <Route path='/vendorloginr' component={RegistrationForm} />
-
-
-      </Switch>
+    <div className="App">
+      <Header title={title}/>
+        <div className="container d-flex align-items-center flex-column">
+          <Switch>
+            <Route path="/" exact={true}>
+              <RegistrationForm showError={updateErrorMessage} updateTitle={updateTitle}/>
+            </Route>
+            <Route path="/register">
+              <RegistrationForm showError={updateErrorMessage} updateTitle={updateTitle}/>
+            </Route>
+            <Route path="/login">
+              <LoginForm showError={updateErrorMessage} updateTitle={updateTitle}/>
+            </Route>
+            <PrivateRoute path="/home">
+              <Home/>
+            </PrivateRoute>
+          </Switch>
+          <AlertComponent errorMessage={errorMessage} hideError={updateErrorMessage}/>
+        </div>
+    </div>
     </Router>
   );
 }

@@ -7,6 +7,8 @@ import cors from 'cors';
 import indexRoutes from './routes/index.routes';
 import postRoutes from './routes/post.routes';
 import vendorRoutes  from './routes/vendor.routes';
+import vendorUsersRoutes from './routes/vendorregister.routes';
+import vendorUsersLoginRoutes from './routes/vendorlogin.routes';
 
 export class App {
 
@@ -36,6 +38,8 @@ export class App {
         this.app.use(indexRoutes);
         this.app.use('/posts', postRoutes);
         this.app.use('/vendoritems',vendorRoutes);
+        this.app.use('/user/register',vendorUsersRoutes);
+        this.app.use('/user/login',vendorUsersLoginRoutes);
     }
 
     
