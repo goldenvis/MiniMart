@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import './LoginForm.css';
-import {API_BASE_URL, ACCESS_TOKEN_NAME} from '../../../constants/apiConstants';
+import {ACCESS_TOKEN_NAME} from '../../../constants/apiConstants';
 import { withRouter } from "react-router-dom";
 
 function LoginForm(props) {
@@ -24,7 +24,7 @@ function LoginForm(props) {
             "email":state.email,
             "password":state.password,
         }
-        axios.post(API_BASE_URL+'/user/login', payload)
+        axios.post('/user/login', payload)
             .then(function (response) {
                 if(response.status === 200){
                     setState(prevState => ({
@@ -51,7 +51,7 @@ function LoginForm(props) {
         props.history.push('/home');
     }
     const redirectToRegister = () => {
-        props.history.push('/vendorloginr'); 
+        props.history.push('/register'); 
         props.updateTitle('Register');
     }
     return(

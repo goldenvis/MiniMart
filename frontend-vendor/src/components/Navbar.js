@@ -12,38 +12,7 @@ const Navbar= () =>{
 			 <li>
       <Link to="/">Grocery stores</Link>
     </li>
-    <li>
-      <Link to="/clothes&shoes">Clothes and shoes</Link>
-    </li>
-    <li>
-      <Link to="/electronics">Electronics</Link>
-    </li>
-    <li>
-      <Link to="/sports">Sports</Link>
-    </li>
-    <li>
-      <Link to="/toys">Toys</Link>
-    </li>
-    <li>
-      <Link to="/test">Test</Link>
-    </li>
-    <li>
-      <Link to="/time">Time</Link>
-    </li>
-    <li>
-      <Link to="/weather">Weather</Link>
-    </li>
-    <li>
-      <Link to="/addlist">AddList</Link>
-    </li>
-    <li>
-      <Link to="/displaylist">DisplayList</Link>
-    </li>
-    <li>
-      <Link to="/login">Login</Link>
-    </li>
-    
-    <li>
+       <li>
       <Link to="/vendorform">VendorForm</Link>
     </li>
 

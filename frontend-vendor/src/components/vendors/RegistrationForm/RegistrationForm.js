@@ -3,13 +3,15 @@ import axios from 'axios';
 import './RegistrationForm.css';
 import {API_BASE_URL, ACCESS_TOKEN_NAME} from '../../../constants/apiConstants';
 import { withRouter } from "react-router-dom";
+import { v4 as uuidv4 } from 'uuid';
 
 function RegistrationForm(props) {
     const [state , setState] = useState({
         email : "",
         password : "",
         confirmPassword: "",
-        successMessage: null
+        successMessage: null,
+        id: "",
     })
     const handleChange = (e) => {
         const {id , value} = e.target   
@@ -22,10 +24,12 @@ function RegistrationForm(props) {
         if(state.email.length && state.password.length) {
             props.showError(null);
             const payload={
+                "id": uuidv4(),
                 "email":state.email,
                 "password":state.password,
             }
-            axios.post(API_BASE_URL+'/user/register', payload)
+            console.log(payload);
+            axios.post('/user/register', payload)
                 .then(function (response) {
                     if(response.status === 200){
                         setState(prevState => ({
@@ -53,7 +57,7 @@ function RegistrationForm(props) {
     }
     const redirectToLogin = () => {
         props.updateTitle('Login')
-        props.history.push('/vendorlogin');
+        props.history.push('/login');
     }
     const handleSubmitClick = (e) => {
         e.preventDefault();
