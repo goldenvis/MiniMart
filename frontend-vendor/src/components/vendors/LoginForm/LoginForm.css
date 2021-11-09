@@ -6,19 +6,34 @@
     margin-top: 10vh;
 }
 
+
+.bg-img {
+    /* The image used */
+    background-image: url("./bg.jpg");
+  
+    /* Control the height of the image */
+    min-height: 700px;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+
 .classComponentForm {
     position: absolute;
     text-align: left;
-    width: 40%;
+    width: 60%;
     height: 50%;
-    background-color: #AAAA;
-    padding: 20px;
-    top: 10%;
+    background-color: burlywood;
+    padding: 40px;
+    top: 20%;
     left: 26%;
     border: solid;
     border-color: black;
     border-width: 0px;
-    border-radius: 10px;
+    border-radius: 100px;
 }
 
 .classComponentForm h2 {
@@ -44,4 +59,9 @@ form input {
     height: 40px;
     font-size: 20px;
     font-family: "Work Sans", sans-serif;
+}
+
+.bg-img {
+    /* The image used */
+    background-image: url("./bg.jpg");
 }

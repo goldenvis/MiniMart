@@ -10,10 +10,11 @@
     position: absolute;
     text-align: left;
     width: 50%;
-    height: 125%;
-    background-color: greenyellow;
-    padding: 50px;
-    top: 30%;
+    height: 140%;
+    background-color: #AAAA;
+    padding: 20px;
+    top: 10%;
+    bottom: 20%;
     left: 26%;
     border: solid;
     border-color: black;

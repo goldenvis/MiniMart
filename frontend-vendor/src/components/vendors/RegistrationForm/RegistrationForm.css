@@ -1,8 +1,12 @@
-.loginText {
-    color: #007bff;
-    font-weight: bold;
-    cursor: pointer;
-}
+
+
+body, html {
+    height: 100%;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
 
 .successMessage {
     color: green;
@@ -12,39 +16,98 @@
 .classComponentForm {
     position: absolute;
     text-align: left;
-    width: 40%;
-    height: 55%;
-    background-color: #AAAA;
-    padding: 20px;
+    right: 0;
+    width: 50%;
+    height: 70%;
+    background-color: white;
+    padding: 40px;
     top: 10%;
-    left: 26%;
+    left: 45%;
     border: solid;
     border-color: black;
-    border-width: 3px;
+    border-width: 0px;
     border-radius: 10px;
+    font-size: 20px;
 }
 
 .classComponentForm h2 {
     text-align: center;
 }
 
-form {
-  display: flex;
-  flex-direction: column; 
-  justify-content: center;
-  width: 100%;
-}
 
-form label {
+.bg-img {
+    /* The image used */
+    background-image: url("../LoginForm/bg.jpg");
+  
+    /* Control the height of the image */
+    min-height: 700px;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+
+  /* Set a style for the submit button */
+  .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    bottom: 10;
+  }
+  
+  .btn:hover {
+    opacity: 1;
+  }
+
+  /* Add styles to the form container */
+
+  
+  /* Full-width input fields */
+  input[type=email],input[type=text], input[type=password] {
+    width: 100%;
+    padding: 20px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+  }
+
+
+  
+  input[type=email]:focus,input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Set a style for the submit button */
+  .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .btn:hover {
+    opacity: 1;
+  }
+
+  .successMessage {
+    color: green;
     font-weight: bold;
-    text-align: left;
-    padding-bottom: 10px;
-    padding-top: 10px;
 }
 
-form input {
-    width: 50%;
-    height: 40px;
-    font-size: 20px;
-    font-family: "Work Sans", sans-serif;
+#style  {
+    background-color: red;
+}
+
+#style:focus {     
+    background-color:yellow;    
 }

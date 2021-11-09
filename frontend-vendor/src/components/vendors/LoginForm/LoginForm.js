@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import './LoginForm.css';
+import styles from './LoginForm.css';
 import {ACCESS_TOKEN_NAME} from '../../../constants/apiConstants';
 import { withRouter } from "react-router-dom";
+//import styles  from '../../../components/all.css';
 
 function LoginForm(props) {
     const [state , setState] = useState({
@@ -48,6 +49,9 @@ function LoginForm(props) {
     }
     const redirectToHome = () => {
         props.updateTitle('Home')
+        console.log("I am in LoginForm");
+        console.log(state.email);
+        props.updateEmail(state.email);
         props.history.push('/home');
     }
     const redirectToRegister = () => {
@@ -55,6 +59,7 @@ function LoginForm(props) {
         props.updateTitle('Register');
     }
     return(
+        <div class="bg-img">
         <div className="classComponentForm">
             <form id='form'>
                 <div className="form-group text-left">
@@ -94,6 +99,7 @@ function LoginForm(props) {
                 <span>Dont have an account? </span>
                 <span className="loginText" onClick={() => redirectToRegister()}>Register</span> 
             </div>
+        </div>
         </div>
     )
 }

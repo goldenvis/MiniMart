@@ -68,10 +68,11 @@ function RegistrationForm(props) {
         }
     }
     return(
+        <div class="bg-img">
         <div className="classComponentForm">
-            <form id='form'>
+            <form id='container'>
                 <div className="form-group text-left">
-                <label htmlFor="exampleInputEmail1">Email address</label>
+                <label htmlFor="exampleInputEmail1">Email</label>
                 <input type="email" 
                        className="form-control" 
                        id="email" 
@@ -118,6 +119,7 @@ function RegistrationForm(props) {
                 <span className="loginText" onClick={() => redirectToLogin()}>Login here</span> 
             </div>
             
+        </div>
         </div>
     )
 }
