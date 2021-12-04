@@ -72,8 +72,7 @@ function LoginForm(props) {
                        value={state.email}
                        onChange={handleChange}
                 />
-                <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-                </div>
+               </div>
                 <div className="form-group text-left">
                 <label htmlFor="exampleInputPassword1">Password</label>
                 <input type="password" 
@@ -96,7 +95,6 @@ function LoginForm(props) {
                 {state.successMessage}
             </div>
             <div className="registerMessage">
-                <span>Dont have an account? </span>
                 <span className="loginText" onClick={() => redirectToRegister()}>Register</span> 
             </div>
         </div>

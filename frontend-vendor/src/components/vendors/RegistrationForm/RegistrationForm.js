@@ -81,7 +81,7 @@ function RegistrationForm(props) {
                        value={state.email}
                        onChange={handleChange}
                 />
-                <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+               
                 </div>
                 <div className="form-group text-left">
                     <label htmlFor="exampleInputPassword1">Password</label>
@@ -115,8 +115,7 @@ function RegistrationForm(props) {
                 {state.successMessage}
             </div>
             <div className="mt-2">
-                <span>Already have an account? </span>
-                <span className="loginText" onClick={() => redirectToLogin()}>Login here</span> 
+                <span  className="loginText" onClick={() => redirectToLogin()}>  Login</span> 
             </div>
             
         </div>

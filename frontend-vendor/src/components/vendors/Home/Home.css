@@ -1,38 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 
-body {font-family: "Lato", sans-serif;}
+header {
+  padding: 30px;
+  height: 100px;
+  background-color: #212121;
+}
 
-.sidebar {
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  z-index: 1;
-  top: 10;
+.sideNav {
+  width: 240px;
+  background-color: #212121;
+  max-height: 95vh;
+  min-height: 655px;
+  position: absolute;
+  padding: 0px 30px;
+  transition: all 0.7s;
+  left: -100%;
+}
+
+.sideNav.active {
   left: 0;
-  background-color: pink;
-  overflow-x: hidden;
-  padding-top: 16px;
+  min-height: 653px;
 }
 
-.sidebar a {
-  padding: 10px 18px 16px 16px;
-  top: 10px;
+
+ul {
+  padding: 0;
+}
+
+ul li {
+  list-style-type: none;
+  margin: 10px 0;
+}
+
+.logo {
+  width: 150px;
+  height: 50px;
+  padding: 0;
+}
+
+ul li a {
   text-decoration: none;
-  font-size: 20px;
-  color: #818181;
+  color: aliceblue;
+  font-size: 16px;
   display: block;
+  padding: 10px 15px;
+  border-radius: 4px;
 }
 
-.sidebar a:hover {
-  color: #f1f1f1;
+ul li a svg {
+  margin-right: 10px;
 }
 
-.main {
-  margin-left: 160px; /* Same as the width of the sidenav */
-  padding: 0px 10px;
+ul li a:hover ,
+ul li a:active
+{
+  background-color: #8da2c5;
 }
 
-@media screen and (max-height: 450px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
+header svg {
+  font-size: 30px;
 }
+
+
+.button2 {width: 5%;}

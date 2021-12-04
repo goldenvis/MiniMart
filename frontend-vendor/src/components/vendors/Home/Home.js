@@ -1,15 +1,24 @@
 import React,{ useEffect , useState} from 'react';
-import { withRouter, Route,Switch,useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, withRouter, Route,Switch,useLocation } from 'react-router-dom';
 import PerfectScrollbar from "perfect-scrollbar";
 import DemoNavbar from "../../../components/Navbars/DemoNavbar.js";
 import Footer from "../../../components/Footer/Footer";
 import Sidebar from "../../../components/Sidebar/Sidebar";
 import FixedPlugin from "../../../components/FixedPlugin/FixedPlugin"; 
 import { ACCESS_TOKEN_NAME, API_BASE_URL } from '../../../constants/apiConstants';
+import Navbar from '../../../components/Sidebar/Navbar';
 import axios from 'axios';
 import styles  from "./Home.css"
+import PrivateRoute from '../../../components/utils/PrivateRoute';
 
 import routes from "../../../components/routes.js";
+
+//import { HiMenu } from 'react-icons/hi'
+//import {BrowserRouter as Router ,  Routes } from 'react-router-dom';
+import Contact from '../../../components/pages/Contact';
+import About from '../../../components/pages/About';
+import Additems from '../../../components/pages/Additems';
+import { HiMenu } from 'react-icons/hi'
 
 var ps;
 function Home(props) {
@@ -20,6 +29,27 @@ function Home(props) {
   const [state , setState] = useState({
     showForm: false
 })
+
+function renderLogout() {
+  if(props.location.pathname === '/home'){
+      return(
+         
+              <button className="btn btn-danger button2" style={{
+                position: 'absolute',
+                top: '20px',
+                right: '60px',
+              }} onClick={() => handleLogout()}>Logout</button>
+          
+      )
+  }
+}
+
+function handleLogout() {
+  localStorage.removeItem(ACCESS_TOKEN_NAME)
+  props.history.push('/login')
+}
+
+const [showNav , SetshowNav] = useState(false)
 
   console.log(props);
   console.log(props.email);
@@ -86,21 +116,38 @@ function Home(props) {
     
     return(
       
-      <div class="sidebar">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+      <>
+      <Router>
       
-  
-<a href="/Vendortables"><i class="fa fa-fw fa-table"></i> Tables</a>
-  <a href="/vendorforms"><i class="fa fa-fw fa-plus-square-o"></i> Vendor forms</a>
-  <a href="/login"><i class="fa fa-fw fa-plus-square-o"></i> Login</a>
-  <a href="/vendorupdate"><i class="fa fa-user-o"></i> Vendor Update</a>
-  <h1>Manage Application</h1>
-  <h2>User: {props.match['path']}</h2>
-  <button  onClick={() => setState({showForm: true}) }>Add offers</button>
-  <button>Change Existing Application</button>
-        <button>Remove Application</button>
-        {state.showForm ? showForm() : null}
-</div>
+        <header>
+          <HiMenu color="white" style={{
+      position: 'absolute',
+      top: '20px',
+      right: '10px',
+    }} onClick={() => SetshowNav(!showNav)}/>
+          <a href="/"> {renderLogout()}</a>
+        </header>
+
+        <Navbar show={showNav}/>
+
+        <div className="main">
+          <Switch>
+          <PrivateRoute path="/about">
+              <About/>
+            </PrivateRoute>
+            <PrivateRoute path="/contact">
+              <Contact/>
+            </PrivateRoute>
+            <PrivateRoute path="/additemsform">
+              <Additems/>
+            </PrivateRoute>
+          </Switch>
+        </div>
+      
+      </Router>
+      
+    </>
     
     )
 }

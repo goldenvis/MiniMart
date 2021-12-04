@@ -6,6 +6,8 @@ import LoginForm from './vendors/LoginForm/LoginForm';
 import RegistrationForm from './vendors/RegistrationForm/RegistrationForm';
 import Home from './vendors/Home/Home';
 import PrivateRoute from './utils/PrivateRoute';
+import About from './pages/About';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -20,7 +22,7 @@ function App() {
   return (
     <Router>
     <div className="App">
-      <Header title={title}/>
+    
         <div className="container d-flex align-items-center flex-column">
           <Switch>
             <Route path="/" exact={true}>
