@@ -2,11 +2,12 @@
     position: fixed;
     left: 0;
     bottom: 0;
+    padding: 1%;
     width: 100%;
-    background-color: grey;
+    background-color: #57084a;
     color: white;
     text-align: center;
-    height: 100px;
+    height: 80px;
     font-family: 'Open Sans', sans-serif;
     color: #FFFFFF;
     

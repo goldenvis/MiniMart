@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import './App.css';
-import Header from './vendors/Header/Header';
 import Footer from './vendors/Footer/Footer';
 import LoginForm from './vendors/LoginForm/LoginForm';
 import RegistrationForm from './vendors/RegistrationForm/RegistrationForm';
@@ -14,7 +13,6 @@ import {
   Route
 } from "react-router-dom";
 import AlertComponent from './vendors/AlertComponent/AlertComponent';  
-import VendorForm from './vendors/VendorForm/VendorForm';
 function App() {
   const [title, updateTitle] = useState(null);
   const [email, updateEmail] = useState(null);
@@ -37,10 +35,7 @@ function App() {
             <PrivateRoute path="/home" email="chmt.raghuveer@gmail.com">
               <Home/>
             </PrivateRoute>
-            <PrivateRoute path="/vendorforms">
-              <VendorForm/>
-            </PrivateRoute>
-          </Switch>
+            </Switch>
           <AlertComponent errorMessage={errorMessage} hideError={updateErrorMessage}/>
         </div>
         <Footer title={title}/>

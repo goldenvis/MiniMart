@@ -1,52 +1,102 @@
 .mytext {
-    width: 400px;
+    width: 100px;
     height: 100px;
 }
 .mytextwidth {
-    width: 400px;
+    width: 500px;
 }
 
 #classComponentForm {
     position: absolute;
     text-align: left;
-    width: 60%;
-    height: 60%;
-    background-color: #AAAA;
-    padding: 20px;
-    top: 12%;
-    bottom: 20%;
-    left: 26%;
+    width: 75%;
+    height: 75%;
+    background-color: #6B7A8F;
+    padding: 15px;
+    top: 14%;
+    left: 20%;
+    bottom: 5%;
     border: solid;
     border-color: black;
     border-width: 0px;
     border-radius: 10px;
+    font-size: 16px;
 }
 
 #classComponentForm h2 {
     text-align: center;
+    display: flex;
 }
 
-form {
-  display: flex;
-  flex-direction: column; 
-  justify-content: center;
-  width: 100%;
-}
+  form {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    width: 100%;
+  }
+  
+  form label {
+      font-weight: bold;
+      text-align: left;
+      padding-bottom: 10px;
+      padding-top: 10px;
+  }
+  
+  form input {
+      width: 50%;
+      height: 40px;
+      font-size: 14px;
+      font-family: "Work Sans", sans-serif;
+  }
 
-form label {
-    font-weight: bold;
-    text-align: left;
-    padding-bottom: 10px;
-    padding-top: 10px;
-}
+  .btn2{
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    float: left;
+  }
+  .btn3{
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    float: right;
+  }
 
-form input {
-    width: 50%;
-    height: 40px;
-    font-size: 20px;
-    font-family: "Work Sans", sans-serif;
-}
+  .form-control {
+    width: 10%;
+  }
 
-input {
+  input[type=text] {
+    border-radius: 4px;
+    width: 40%
+  }
+
+  input[type=email] {
+    border-radius: 4px;
     width: 40%;
+    height:auto;
+  }
+
+  input[type=number] {
+    border-radius: 4px;
+    width: 40%
+  }
+
+  .htmlFor {
+    font-size: 16px;
+  }
+
+  input[type=password] {
+    border-radius: 4px;
+    width: 40%
   }

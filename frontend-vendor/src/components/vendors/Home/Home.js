@@ -1,10 +1,5 @@
 import React,{ useEffect , useState} from 'react';
 import { BrowserRouter as Router, withRouter, Route,Switch,useLocation } from 'react-router-dom';
-import PerfectScrollbar from "perfect-scrollbar";
-import DemoNavbar from "../../../components/Navbars/DemoNavbar.js";
-import Footer from "../../../components/Footer/Footer";
-import Sidebar from "../../../components/Sidebar/Sidebar";
-import FixedPlugin from "../../../components/FixedPlugin/FixedPlugin"; 
 import { ACCESS_TOKEN_NAME, API_BASE_URL } from '../../../constants/apiConstants';
 import Navbar from '../../../components/Sidebar/Navbar';
 import axios from 'axios';
@@ -18,6 +13,8 @@ import routes from "../../../components/routes.js";
 import Contact from '../../../components/pages/Contact';
 import About from '../../../components/pages/About';
 import Additems from '../../../components/pages/Additems';
+import Vendorregistration from '../../pages/Vendorregistration';
+import Productlist from '../../pages/Productlist';
 import { HiMenu } from 'react-icons/hi'
 
 var ps;
@@ -124,7 +121,7 @@ const [showNav , SetshowNav] = useState(false)
           <HiMenu color="white" style={{
       position: 'absolute',
       top: '20px',
-      right: '10px',
+      left: '20px',
     }} onClick={() => SetshowNav(!showNav)}/>
           <a href="/"> {renderLogout()}</a>
         </header>
@@ -141,6 +138,15 @@ const [showNav , SetshowNav] = useState(false)
             </PrivateRoute>
             <PrivateRoute path="/additemsform">
               <Additems/>
+            </PrivateRoute>
+            <PrivateRoute path="/vendorregistration">
+              <Vendorregistration/>
+            </PrivateRoute>
+            <PrivateRoute path="/vendorsetting">
+              <Vendorregistration/>
+            </PrivateRoute>
+            <PrivateRoute path="/productlist">
+              <Productlist/>
             </PrivateRoute>
           </Switch>
         </div>

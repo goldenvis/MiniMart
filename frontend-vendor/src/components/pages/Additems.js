@@ -1,20 +1,26 @@
 import React,{ useEffect , useState} from 'react';
 import { withRouter, Route,Switch,useLocation } from 'react-router-dom';
+//import UploadService from "../services/file-upload.service";
 //import { ACCESS_TOKEN_NAME, API_BASE_URL } from '../../../constants/apiConstants';
+import {ACCESS_TOKEN_NAME} from '../../constants/apiConstants';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import  "./Additems.css";
+
+
 //import styles  from "./Home.css"
 
 
 var ps;
+
 function Additems(props) {
   const [backgroundColor, setBackgroundColor] = React.useState("black");
   const [activeColor, setActiveColor] = React.useState("info");
   const mainPanel = React.useRef();
   const location = useLocation();
   
-  const [state , setState] = useState({
+  
+  const [Item , setState] = useState({
     id: '',
     userid: 'dummyuserid',
     name: '',
@@ -25,21 +31,36 @@ function Additems(props) {
     enddate: '',
     description: '',
     category: '',
+    currentFile: undefined,
+    previewImage: undefined,
+    progress: 0,
+    message: "",
+    imageInfos: [],
+    successMessage: null
+
 })
 
 
 
+const handleChange = (e) => {
+    const {id , value} = e.target   
+    setState(prevState => ({
+        ...prevState,
+        [id] : value
+    }))
+}
+
  
-const handleChange = (event) => {
+ /*const handleChange = (event) => {
     this.setState({
-        name: document.getElementById('name').value,
+        name: document.getElementById('name').value.this,
         price: document.getElementById('price').value,
         category: document.getElementById('category').value,
         description: document.getElementById('description').value,
         startdate: document.getElementById('startdate').value,
         enddate: document.getElementById('enddate').value,
     })
-}
+} */
 
 const fileSelectedHandler = (event) => {
     let file = event.target.files[0].name;
@@ -50,19 +71,27 @@ const fileSelectedHandler = (event) => {
     console.log(file);
 }
 
+const redirectToHome = () => {
+    //props.updateTitle('Home')
+    //props.updateEmail(state.email);
+    props.history.push('/home');
+}
+
+
 const fileUploadHandler = (event) => {
 
     event.preventDefault();
 
     let formData = new FormData();
     formData.append('id', uuidv4());
-    formData.append('userid', this.state.userid);
-    formData.append('name', this.state.name);
-    formData.append('price', this.state.price);
-    formData.append('category',this.state.category);
-    formData.append('description', this.state.description);
-    formData.append('begindate', this.state.startdate);
-    formData.append('enddate', this.state.enddate);
+    //formData.append('userid', this.state.userid);
+    formData.append('name', Item.name);
+    formData.append('price', Item.price);
+    formData.append('category',Item.category);
+    formData.append('description', Item.description);
+    formData.append('begindate', Item.startdate);
+    formData.append('enddate', Item.enddate);
+    formData.append('file', Item.file);
 
     console.log(formData);
     for (var [key, value] of formData.entries()) { 
@@ -86,20 +115,42 @@ const fileUploadHandler = (event) => {
         '/vendoritems',
         {
             id: uuidv4(),
-            userid: this.state.userid,
-            name: this.state.name,
-            price: this.state.price,
-            category: this.state.category,
-            description: this.state.description,
-            begindate: this.state.startdate,
-            enddate: this.state.enddate
+            userid: Item.userid,
+            name: Item.name,
+            price: Item.price,
+            category: Item.category,
+            description: Item.description,
+            begindate: Item.startdate,
+            enddate: Item.enddate
         },
         {
           headers: {
             "x-access-token": "token-value",
           },
         }
-      ); 
+      ).then(function (response) {
+        if(response.status === 200){
+            setState(prevState => ({
+                ...prevState,
+                'successMessage' : 'Submission successful. Redirecting to home page..'
+            }))
+            localStorage.setItem(ACCESS_TOKEN_NAME,response.data.token);
+            //redirectToHome();
+            //props.showError(null)
+        }
+        else if(response.code === 204){
+            props.showError("Username and password do not match");
+        }
+        else{
+            props.showError("Username does not exists");
+        }
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+
+   
+
 }
     
     return(
@@ -109,16 +160,16 @@ const fileUploadHandler = (event) => {
 
                 <form id='form' encType="multipart/form">
                 <div class="row">
-                <label>Category </label>
+                <label>Category</label>
                     <input 
                         type="text" 
                         name="category" 
                         id="category" 
                         placeholder="Select category"
-                        class="mytextwidth" 
-                        onChange={handleChange}
+                        class="mytextwidth"
+                        value={Item.category}
+                       onChange={handleChange}
                     />
-                    <br/>
                     <label>Product name </label>
                     <input 
                         type="text" 
@@ -126,21 +177,21 @@ const fileUploadHandler = (event) => {
                         id="name" 
                         placeholder="Name of the product"
                         class="mytextwidth" 
+                        value={Item.name}
                         onChange={handleChange}
                     />
                     </div>
-                    <br/>
-                
+                    <div class="row">           
                     <label>Price </label>
                     <input 
                         type="number" 
                         name="price" 
                         id="price" 
                         placeholder="Price"
-                        class="mytextwidth" 
+                        class="mytextwidth"
+                        value={Item.price} 
                         onChange={handleChange}
                     />
-                    <br/>
                     <label>Description </label>
                     <input 
                         type="text" 
@@ -148,9 +199,11 @@ const fileUploadHandler = (event) => {
                         id="description"
                         class="mytext" 
                         placeholder="Description"
+                        value={Item.description}
                         onChange={handleChange}
                     />
-                    <br/>
+                    </div>
+                    <div class="row">
                     <label>Begin Date </label>
                     <input
                     type="date" 
@@ -158,9 +211,9 @@ const fileUploadHandler = (event) => {
                     placeholder="dd-mm-yyyy"
                     class="mytextwidth" 
                     id="startdate"
+                    value={Item.startdate}
                     onChange={handleChange}
                     />
-                    <br/>
                     <label>Expire Date </label>
                     <input
                     type="date" 
@@ -168,12 +221,17 @@ const fileUploadHandler = (event) => {
                     placeholder="dd-mm-yyyy"
                     class="mytextwidth" 
                     id="enddate"
+                    value={Item.enddate}
                     onChange={handleChange}
                     />
-                    <br/>
+                    </div>
                     <button className="submitBtn" type="submit" onClick={fileUploadHandler}>Add Products</button>
                 </form>
+                <div className="alert alert-success mt-2" style={{display: Item.successMessage ? 'block' : 'none' }} role="alert">
+                {Item.successMessage}
             </div>
+              
+    </div>
     
     )
 }

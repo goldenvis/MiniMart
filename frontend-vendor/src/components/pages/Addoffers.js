@@ -1,20 +1,14 @@
 import React,{ useEffect , useState} from 'react';
 import { withRouter, Route,Switch,useLocation } from 'react-router-dom';
-import PerfectScrollbar from "perfect-scrollbar";
-import DemoNavbar from "../../../components/Navbars/DemoNavbar.js";
-import Footer from "../../../components/Footer/Footer";
-import Sidebar from "../../../components/Sidebar/Sidebar";
-import FixedPlugin from "../../../components/FixedPlugin/FixedPlugin"; 
-import { ACCESS_TOKEN_NAME, API_BASE_URL } from '../../../constants/apiConstants';
+//import { ACCESS_TOKEN_NAME, API_BASE_URL } from '../../../constants/apiConstants';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
-import  "./VendorForm.css";
+import  "./Additems.css";
 //import styles  from "./Home.css"
 
-import routes from "../../../components/routes.js";
 
 var ps;
-function VendorForm(props) {
+function Addoffers(props) {
   const [backgroundColor, setBackgroundColor] = React.useState("black");
   const [activeColor, setActiveColor] = React.useState("info");
   const mainPanel = React.useRef();
@@ -32,12 +26,8 @@ function VendorForm(props) {
     description: '',
     category: '',
 })
-
-
-
- 
-const handleChange = (event) => {
-    this.setState({
+const handleChangeForm = (event) => {
+    setState({
         name: document.getElementById('name').value,
         price: document.getElementById('price').value,
         category: document.getElementById('category').value,
@@ -111,40 +101,41 @@ const fileUploadHandler = (event) => {
     return(
       
         <div id='classComponentForm' >
-                <h2>Vendor Form</h2>
+                <h2>Add Products</h2>
 
                 <form id='form' encType="multipart/form">
+                <div class="row">
+                <div class="form-group name1 col-md-3 text-left">
                 <label>Category </label>
                     <input 
                         type="text" 
                         name="category" 
                         id="category" 
                         placeholder="Select category"
-                        class="mytextwidth" 
-                        onChange={handleChange}
+                        onChange={handleChangeForm}
                     />
-                    <br/>
+                    </div>
+                    <div class="form-group name2 col-md-3">
                     <label>Product name </label>
                     <input 
                         type="text" 
                         name="name" 
                         id="name" 
                         placeholder="Name of the product"
-                        class="mytextwidth" 
-                        onChange={handleChange}
+                        onChange={handleChangeForm}
                     />
-                    <br/>
-                
-                    <label>Price </label>
+                    </div>
+                    <div class="form-group name3 col-md-3">
+                    <label>Price   </label>
                     <input 
                         type="number" 
                         name="price" 
                         id="price" 
                         placeholder="Price"
-                        class="mytextwidth" 
-                        onChange={handleChange}
+                        onChange={handleChangeForm}
                     />
-                    <br/>
+                    </div>
+                    <div class="form-group name3 col-md-3">
                     <label>Description </label>
                     <input 
                         type="text" 
@@ -152,9 +143,10 @@ const fileUploadHandler = (event) => {
                         id="description"
                         class="mytext" 
                         placeholder="Description"
-                        onChange={handleChange}
+                        onChange={handleChangeForm}
                     />
-                    <br/>
+                    </div>
+                    <div class="form-group name3 col-md-3">
                     <label>Begin Date </label>
                     <input
                     type="date" 
@@ -162,9 +154,10 @@ const fileUploadHandler = (event) => {
                     placeholder="dd-mm-yyyy"
                     class="mytextwidth" 
                     id="startdate"
-                    onChange={handleChange}
+                    onChange={handleChangeForm}
                     />
-                    <br/>
+                    </div>
+                    <div class="form-group name3 col-md-3">
                     <label>Expire Date </label>
                     <input
                     type="date" 
@@ -172,14 +165,19 @@ const fileUploadHandler = (event) => {
                     placeholder="dd-mm-yyyy"
                     class="mytextwidth" 
                     id="enddate"
-                    onChange={handleChange}
+                    onChange={handleChangeForm}
                     />
-                    <br/>
+                    </div>
+                    </div>
+                
+                    <div class="form-group name3 col-md-3">
+                    
                     <button className="submitBtn" type="submit" onClick={fileUploadHandler}>Add Products</button>
+                    </div>
                 </form>
             </div>
     
     )
 }
 
-export default withRouter(VendorForm);
+export default withRouter(Addoffers);

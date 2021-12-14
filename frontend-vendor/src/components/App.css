@@ -1,6 +1,9 @@
 .App {
   text-align: center;
+  background-color:  #f4eeda;
 }
+
+
 
 .App-logo {
   height: 40vmin;
@@ -70,4 +73,128 @@ input {
 
 .cardArea {
   padding: 50px;
+}
+
+.liSpan
+{
+    line-height: 10em;
+    padding: 1em 0;
+}
+
+.productlist {
+  font-family: sans-serif;
+  text-align: center;
+  width: 10%;
+  height: 75%;
+  background-color: #AAAA;
+  padding: 20px;
+  top: 14%;
+  left: 26%;
+  bottom: 5%;
+  border: solid;
+}
+
+
+.mytext {
+  width: 100px;
+  height: 100px;
+}
+.mytextwidth {
+  width: 500px;
+}
+
+#classComponentForm {
+  position: absolute;
+  text-align: left;
+  width: 75%;
+  height: 75%;
+  background-color: #AAAA;
+  padding: 15px;
+  top: 14%;
+  left: 20%;
+  bottom: 5%;
+  border: solid;
+  border-color: black;
+  border-width: 0px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+#classComponentForm h2 {
+  text-align: center;
+  display: flex;
+}
+
+form {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  width: 100%;
+}
+
+form label {
+    font-weight: bold;
+    text-align: left;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+form input {
+    width: 50%;
+    height: 40px;
+    font-size: 15px;
+    font-family: "Work Sans", sans-serif;
+}
+
+.btn2{
+  background-color: #f44336;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  float: left;
+}
+.btn3{
+  background-color: #4CAF50; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  float: right;
+}
+
+.form-control {
+  width: 10%;
+}
+
+input[type=text] {
+  border-radius: 4px;
+  height: 10px;
+  width: 40%
+}
+
+input[type=email] {
+  border-radius: 4px;
+  width: 40%;
+  height:8px;
+}
+
+input[type=number] {
+  border-radius: 4px;
+  width: 40%;
+}
+
+.htmlFor {
+  font-size: 16px;
+}
+
+input[type=password] {
+  border-radius: 4px;
+  width: 40%
 }
